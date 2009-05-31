@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon version="0.2">
+	<version>0.1</version>
+	<license>GPL</license>
+	<date>2009-04-11</date>
+	<link>http://sworld.pe.kr/</link>
+    <title xml:lang="ko">타이틀 제어 애드온 Lite</title>
+	<description xml:lang="ko">사이트 또는 블로그 등의 타이틀을 자신이 원하는 데로 표시하게 해주는 애드온입니다.
+접속 도메인/모듈에 따라 다르게 표시하실려면 Lite 버전이 아닌 Full 버전을 사용하세요.
+	</description>
+    <author email_address="dowon2308@paran.com" link="http://sworld.pe.kr/">
+		<name xml:lang="ko">SMaker</name>
+	</author>
+    <extra_vars>
+		<group>
+		<title xml:lang="ko">기본 설정</title>
+        <var name="total_title" type="text">
+            <title xml:lang="ko">└ 페이지 제목</title>
+			<description xml:lang="ko">페이지에서 적용될 제목을 입력해 주세요.
+			
+			{default} : 페이지에 설정된 브라우저 제목 출력
+			</description>
+		</var>
+        <var name="total_title2" type="text">
+            <title xml:lang="ko">└ 글 읽기 제목</title>
+				<description xml:lang="ko">글을 읽을 때 적용될 제목을 입력해 주세요.
+				
+				{default} : 게시판에 설정된 브라우저 제목 출력
+				{title} : 읽고 있는 글의 제목 출력
+				{category} : 읽고 있는 글의 분류 출력
+				</description>
+		</var>
+		<var name="total_but_list" type="textarea">
+			<title xml:lang="ko">└ 제외 모듈</title>
+      		<description xml:lang="ko">제외할 모듈을 입력하세요.
+			여러 개의 모듈을 입력할 경우 여러 줄에 걸쳐서 입력하세요.</description>
+		</var>
+		</group>
+    </extra_vars>
+</addon>
