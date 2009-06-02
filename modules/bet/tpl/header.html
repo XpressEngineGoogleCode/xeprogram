@@ -7,14 +7,10 @@
     <h4 class="xeAdmin">{$module_info->mid} <!--@if($module_info->is_default=='Y')--><span class="bracket">({$lang->is_default})</span><!--@end--> <span class="vr">|</span> <a href="{getSiteUrl($module_info->domain,'','mid',$module_info->mid)}" onclick="window.open(this.href); return false;" class="view">View</a></h4>
     <!--@end-->
     <ul class="localNavigation">
-        <!--@if($module=='admin')-->
-        <li><a href="{getUrl('act','dispBetAdminContent','module_srl','')}">{$lang->cmd_list}</a></li>
-        <!--@else-->
-        <li><a href="{getUrl('act','')}">{$lang->cmd_back}</a></li>
-        <!--@end-->
-        <li <!--@if($act=='dispBetAdminInfo')-->class="on"<!--@end-->><a href="{getUrl('act','dispBetAdminInfo')}">{$lang->bet} {$lang->cmd_management}</a></li>
-        <li <!--@if($act=='dispPageAdminPageAdditionSetup')-->class="on"<!--@end-->><a href="{getUrl('act','dispPageAdminPageAdditionSetup')}">{$lang->cmd_addition_setup}</a></li>
-        <li <!--@if($act=='dispPageAdminGrantInfo')-->class="on"<!--@end-->><a href="{getUrl('act','dispPageAdminGrantInfo')}">{$lang->cmd_manage_grant}</a></li>
+        <li<!--@if($act=='dispBetAdminContent')--> class="on"<!--@end-->><a href="{getUrl('act','dispBetAdminContent','module_srl','')}">{$lang->cmd_setup}</a></li>
+        <li<!--@if($act=='dispBetAdminInfo')--> class="on"<!--@end-->><a href="{getUrl('act','dispBetAdminInfo')}">{$lang->bet} {$lang->cmd_management}</a></li>
+        <li<!--@if($act=='dispBetAdminPageAdditionSetup')--> class="on"<!--@end-->><a href="{getUrl('act','dispPageAdminPageAdditionSetup')}">{$lang->cmd_addition_setup}</a></li>
+        <li<!--@if($act=='dispBetAdminGrantInfo')--> class="on"<!--@end-->><a href="{getUrl('act','dispPageAdminGrantInfo')}">{$lang->cmd_manage_grant}</a></li>
     </ul>
 </div>
 <!--@end-->
