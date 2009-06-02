@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <grants />
+    <permissions>
+        <permission action="procFramesetAdminInsert" target="manager" />
+    </permissions>
+    <actions>
+        <action name="dispBetContent" type="view" index="true" />
+        <action name="dispBetAdminContent" type="view" admin_index="true" standalone="true" />
+    </actions>
+</module>
