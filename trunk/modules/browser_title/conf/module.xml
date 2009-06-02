@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants />
+    <permissions />
+    <actions>
+        <action name="dispBrowserTitleAdminIndex" type="view" admin_index="true" />
+		<action name="dispBrowserTitleAdminRuleManagement" type="view" />
+		<action name="dispBrowserTitleAdminAddRule" type="view" />
+		<action name="procBrowserTitleAdminAddRule" type="controller" />
+    </actions>
+</module>

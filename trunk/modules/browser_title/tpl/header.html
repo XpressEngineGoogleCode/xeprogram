@@ -1,0 +1,11 @@
+<!--//%import("js/browser_title.js")-->
+<!--@if($act=='dispBrowserTitleAdminRuleManagement')-->
+<h3 class="xeAdmin">{$lang->rule} <span class="gray">{$lang->cmd_management}</span></h3>
+<!--@end-->
+
+<div class="header4 gap1">
+    <ul class="localNavigation">
+        <li <!--@if($act=='dispBrowserTitleAdminIndex')-->class="on"<!--@end-->><a href="{getUrl('act','dispBrowserTitleAdminIndex')}">{$lang->cmd_module_config}</a></li>
+        <li <!--@if($act=='dispBrowserTitleAdminRuleManagement')-->class="on"<!--@end-->><a href="{getUrl('act','dispBrowserTitleAdminRuleManagement')}">{$lang->cmd_rule_management}</a></li>
+    </ul>
+</div>

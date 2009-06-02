@@ -1,0 +1,30 @@
+<!--#include("header.html")-->
+
+<table cellspacing="0" class="rowTable">
+<thead>
+    <tr>
+        <th scope="col"><div>{$lang->domain}</div></th>
+        <th scope="col"><div>{$lang->mid}</div></th>
+    </tr>
+</thead>
+<tbody>
+    <!--@foreach($rule_list as $no => $val)-->
+    <tr>
+        <td>http://www.xpressengine.com</td>
+        <td>home</td>
+    </tr>
+    <!--@end-->
+</tbody>
+</table>
+
+<div class="clear">
+    <!--//<div class="fl">
+        <a href="{getUrl('','module','module','act','dispModuleAdminModuleSetup')}" onclick="doCartSetup(this.href); return false;" class="button green"><span>{$lang->cmd_setup}</span></a>
+        <a href="{getUrl('','module','module','act','dispModuleAdminModuleAdditionSetup')}" onclick="doCartSetup(this.href); return false;" class="button red"><span>{$lang->cmd_addition_setup}</span></a>
+        <a href="{getUrl('','module','module','act','dispModuleAdminModuleGrantSetup')}" onclick="doCartSetup(this.href); return false;" class="button blue"><span>{$lang->cmd_manage_grant}</span></a>
+    </div>-->
+
+    <div class="fr">
+        <a href="{getUrl('act','dispBrowserTitleAdminAddRule','rule_srl','')}" class="button black strong"><span>{$lang->cmd_submit}</span></a>
+    </div>
+</div>

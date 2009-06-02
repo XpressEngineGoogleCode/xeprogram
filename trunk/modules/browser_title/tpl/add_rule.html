@@ -1,0 +1,35 @@
+<!--%import("js/browser_title.js")-->
+<!--%import("filter/add_rule.xml")-->
+<!--#include("header.html")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, add_rule)" enctype="multipart/form-data">
+<input type="hidden" name="page" value="{$page}" />
+<input type="hidden" name="module_srl" value="{$module_info->rule_srl}" />
+
+    <table cellspacing="0" class="rowTable">
+
+    <tr>
+        <th scope="row"><div>{$lang->domain}</div></th>
+        <td>
+            <input type="text" name="domain" value="{$module_info->domain}" class="inputTypeText w200" />
+            <p>{$lang->about_domain}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->module_srls}</div></th>
+        <td>
+            <select name="_module_srls" id="_module_srls" multiple="multiple">
+                <option></option>
+            </select>
+            <a href="{getUrl('module','module','act','dispModuleSelectList','id','module_srls','type','multiple')}" onclick="popopen(this.href,'ModuleSelect');return false;" class="button green"><span>{$lang->cmd_select}</span></a>
+            <p>{$lang->about_module_srls}</p>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2" class="button">
+            <span class="button black strong"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+            <span class="button"><input type="button" value="{$lang->cmd_back}" onclick="history.back(); return false;" /></span>
+        </th>
+    </table>
+
+</form>
