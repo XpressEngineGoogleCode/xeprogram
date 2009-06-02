@@ -1,0 +1,11 @@
+<query id="getRules" action="select">
+    <tables>
+        <table name="browser_title_rules" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <navigation>
+        <index var="sort_index" default="rule_srl" order="asc" />
+    </navigation>
+</query>

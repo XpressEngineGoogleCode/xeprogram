@@ -1,0 +1,17 @@
+<filter name="add_rule" module="board" act="procBrowserTitleAdminAddRule" confirm_msg_code="confirm_submit">
+    <form>
+		<node target="domain" required="true" />
+        <node target="module_srls" required="true" filter="alpha_number" />
+    </form>
+    <parameter>
+        <param name="domain" target="domain" />
+        <param name="module_srls" target="module_srls" />
+    </parameter>
+    <response callback_func="completeAddRule">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="module" />
+        <tag name="act" />
+        <tag name="page" />
+    </response>
+</filter>

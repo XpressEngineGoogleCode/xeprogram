@@ -1,0 +1,6 @@
+<table name="browser_title_rules">
+	<column name="rule_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" /> 
+    <column name="module_srls" type="text" notnull="notnull" />
+	<column name="domain" type="text" />
+	<column name="regdate" type="date" index="idx_regdate" />
+</table>

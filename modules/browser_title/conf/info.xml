@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module version="0.2">
+    <title xml:lang="ko">타이틀 제어</title>
+    <title xml:lang="en">Title Controller</title>
+    <description xml:lang="ko">브라우저 제목을 일괄적으로 적용할 수 있게 도와주는 모듈입니다.</description>
+    <description xml:lang="en">This module helps to apply the browser title.</description>
+    <version>0.1</version>
+    <date>2009-05-02</date>
+    <category>construction</category>
+
+    <author email_address="dowon2308@paran.com" link="http://sworld.pe.kr">
+        <name xml:lang="ko">SMaker</name>
+        <name xml:lang="en">SMaker</name>
+    </author>
+</module>
