@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
-    <grants />
-    <permissions>
-        <permission action="procFramesetAdminInsert" target="manager" />
-    </permissions>
+    <grants>
+		<grant name="bet">
+			<title xml:lang="ko">배팅 참여</title>
+		</grant>
+	</grants>
+    <permissions />
     <actions>
         <action name="dispBetContent" type="view" index="true" />
         <action name="dispBetAdminContent" type="view" admin_index="true" standalone="true" />
+		<action name="dispBetAdminManagement" type="view" standalone="true" />
+		<action name="dispBetAdminAdditionSetup" type="view" standalone="true" />
+		<action name="dispBetAdminGrantInfo" type="view" standalone="true" />
+		<action name="procBetAdminInsertConfig" type="controller" standalone="true" />
     </actions>
 </module>
