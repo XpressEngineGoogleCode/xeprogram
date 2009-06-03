@@ -1,0 +1,17 @@
+<filter name="insert_config" module="bet" act="procBetAdminInsertConfig" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="mid" required="true" filter="alpha_number" />
+        <node target="browser_title" required="true" />
+    </form>
+    <parameter>
+        <param name="bet_mid" target="mid" />
+        <param name="browser_title" target="browser_title" />
+        <param name="is_default" target="is_default" default="N" />
+        <param name="bet_skin" target="bet_skin" />
+        <param name="layout_srl" target="layout_srl" />
+    </parameter>
+    <response callback_func="completeInsertConfig">
+        <tag name="error" />
+        <tag name="message" />
+    </response>
+</filter>
