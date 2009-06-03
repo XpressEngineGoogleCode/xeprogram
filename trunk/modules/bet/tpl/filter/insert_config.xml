@@ -7,7 +7,7 @@
         <param name="bet_mid" target="mid" />
         <param name="browser_title" target="browser_title" />
         <param name="is_default" target="is_default" default="N" />
-        <param name="bet_skin" target="bet_skin" />
+        <param name="bet_skin" target="skin" />
         <param name="layout_srl" target="layout_srl" />
     </parameter>
     <response callback_func="completeInsertConfig">
