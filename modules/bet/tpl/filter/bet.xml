@@ -1,0 +1,11 @@
+<filter name="bet" module="bet" act="procBet" confirm_msg_code="confirm_bet">
+    <form>
+        <node target="first_score" required="true" filter="number" />
+        <node target="second_score" required="true" filter="number" />
+    </form>
+    <parameter />
+    <response callback_func="completeBet">
+        <tag name="error" />
+        <tag name="message" />
+    </response>
+</filter>
