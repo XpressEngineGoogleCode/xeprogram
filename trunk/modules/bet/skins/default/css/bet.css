@@ -1,0 +1,4 @@
+.betList { border:1px solid; }
+.betList thead th div, .betList tbody td div { height:100%; padding-right:3px; border-right:1px solid #dcdcdc; text-align:center; }
+
+.w30 { width:30px;}

@@ -1,0 +1,31 @@
+<!--%import("js/bet.js")-->
+<!--%import("css/bet.css")-->
+<table class="betList">
+    <thead>
+    <tr>
+        <th><div>&nbsp;</div></th>
+        <!--@if($grant->manager)--><th><div>{$lang->result}</div></th>
+        <th><div>{$lang->cumulative_point}</div></th><!--@end-->
+        <!--@if($grant->bet)--><th><div>{$lang->bet}</div></th><!--@end-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><div>한국 vs 중국</div></td>
+        <!--@if($grant->manager)--><td><div>9:7</div></td>
+        <td><div>0</div></td><!--@end-->
+        <!--@if($grant->bet)--><td><div>
+        <form action="./" method="post" onsubmit="return procFilter(this, bet)">
+            <!--//<input type="hidden" name="document_srl" value="" />-->
+            <input type="text" name="first_score" value="" class="inputTypeText w30"/> : <input type="text" name="second_score" value="" class="inputTypeText w30" /> <input type="text" name="second_score" value="" class="inputTypeText w30" /><p>{$lang->point} <span class="button"><input type="submit" value="{$lang->cmd_bet}" /></span></p></form>
+        </div></td>
+        <!--@end-->
+
+    </tr>
+    </tbody>
+</table>
+<!--@if($grant->manager)-->
+<div class="tRight">
+    <a href="{getUrl('act','dispBetSubmit')}" class="button red"><span>{$lang->cmd_submit}</span></a>
+</div>
+<!--@end-->
