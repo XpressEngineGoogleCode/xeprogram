@@ -44,6 +44,23 @@
         }
 
         /**
+         * @brief 배팅 관리
+         **/
+        function dispBetAdminManagement() {
+            // 스킨 목록을 구해옴
+            $oModuleModel = &getModel('module');
+			$oBetModel = &getModel('bet');
+
+			// module_info
+			$module_info = $oBetModel->getConfig();
+
+            // 템플릿에서 사용할 변수를 Context::set()
+            if($module_info->module_srl) Context::set('module_srl',$module_info->module_srl);
+			Context::set('module_info',$module_info);
+            $this->setTemplateFile('management');
+        }
+
+        /**
          * @brief 권한 목록 출력
          **/
         function dispBetAdminGrantInfo() {
