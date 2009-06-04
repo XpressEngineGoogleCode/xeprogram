@@ -6,6 +6,8 @@
      **/
 
     $lang->bet = '배팅';
+	$lang->about_bet = '포인트를 걸고 배팅할 수 있는 모듈입니다.';
+
 	$lang->result = '결과';
 	$lang->cumulative_point = '누적 포인트';
 	$lang->point = '포인트';
