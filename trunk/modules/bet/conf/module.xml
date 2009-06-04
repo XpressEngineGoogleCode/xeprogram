@@ -9,7 +9,6 @@
     <actions>
         <action name="dispBetAdminContent" type="view" admin_index="true" standalone="true" />
 		<action name="dispBetAdminManagement" type="view" standalone="true" />
-		<action name="dispBetAdminAdditionSetup" type="view" standalone="true" />
 		<action name="dispBetAdminGrantInfo" type="view" standalone="true" />
 
 		<action name="dispBetContent" type="view" index="true" />
