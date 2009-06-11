@@ -37,6 +37,8 @@
 				$var = keyword('title',getDocumentTitle(),$var);
 				// category
 				$var = keyword('category',getDocumentCategory(),$var);
+				// module category
+				$var = keyword('module_category',getModuleCategory(),$var);
 
 				return $var;
 			}
@@ -75,7 +77,7 @@
 
 				$category_info = $oDocumentModel->getCategory($category_srl);
 				$category_title = sprintf('[%s]',$category_info->title);
-				
+
 				return $category_title;
 			}
 
@@ -86,6 +88,19 @@
 				return html_entity_decode(htmlspecialchars(Context::getBrowserTitle()));
 			}
 
+			/**
+	         * @brief 현재 모듈의 모듈 분류을 구하는 함수
+			 **/
+			function getModuleCategory() {
+				$mid = Context::get('mid');
+				$oModuleModel = &getModel('module');
+				$_site_module_info = Context::get('site_module_info');
+				$_module_info = $oModuleModel->getModuleInfoByMid($mid, $_site_module_info->site_srl);
+
+				$category = $oModuleModel->getModuleCategory($_module_info->module_category_srl);
+				return html_entity_decode(htmlspecialchars($category->title));
+			}
+
 		$browserTitleActived = true;
 
 		// 현재 타이틀
@@ -93,8 +108,6 @@
 
 		// 나중에 쉽게 쓸 수 있도록 여러 가지 정보를 변수에 넣기
 		$curdomain = getenv('HTTP_HOST');
-		$docu_srl = Context::get('document_srl');
-		$docu_sbj = getDocumentTitle();
 
 		// 애드온 설정
 		$Customize1_defaultBrowserTitle = trim($addon_info->customize1_title);
@@ -133,7 +146,7 @@
 		$Customize7_documentBrowserTitle = keywordExec($Customize7_documentBrowserTitle);
 		$Customize8_defaultBrowserTitle = keywordExec($Customize8_defaultBrowserTitle);
 		$Customize8_documentBrowserTitle = keywordExec($Customize8_documentBrowserTitle);
-		
+
 		// 전체 모듈 예약어 처리
 		$Total_defaultBrowserTitle = keywordExec($Total_defaultBrowserTitle);
 		$Total_documentBrowserTitle = keywordExec($Total_documentBrowserTitle);
@@ -146,11 +159,11 @@
 
 			$mid_list1 = str_replace("\n",",",trim($addon_info->customize1_module));
 			$mid_list1 = explode(",",$mid_list1);
-			
+
 			if(in_array(Context::get('mid'), $mid_list1) && (in_array($curdomain,$domain1) || !$domain1)) $customize1 = true;
 			else $customize1 = false;
 		}
-		
+
 		// 사용자 정의 2
 		if($addon_info->customize2) {
 			$domain2 = str_replace("\r\n","\n",trim($addon_info->customize2_domain));
@@ -163,7 +176,7 @@
 			if(in_array(Context::get('mid'), $mid_list2) && (in_array($curdomain,$domain2) || !$domain2)) $customize2 = true;
 			else $customize2 = false;
 		}
-		
+
 		// 사용자 정의 3
 		if($addon_info->customize3) {
 			$domain3 = str_replace("\r\n","\n",trim($addon_info->customize3_domain));
@@ -176,7 +189,7 @@
 			if(in_array(Context::get('mid'), $mid_list3) && (in_array($curdomain,$domain3) || !$domain3)) $customize3 = true;
 			else $customize3 = false;
 		}
-		
+
 		// 사용자 정의 4
 		if($addon_info->customize4) {
 			$domain4 = str_replace("\r\n","\n",trim($addon_info->customize4_domain));
@@ -189,7 +202,7 @@
 			if(in_array(Context::get('mid'), $mid_list4) && (in_array($curdomain,$domain4) || !$domain4)) $customize4 = true;
 			else $customize4 = false;
 		}
-			
+
 		// 사용자 정의 5
 		if($addon_info->customize5) {
 			$domain5 = str_replace("\r\n","\n",trim($addon_info->customize5_domain));
