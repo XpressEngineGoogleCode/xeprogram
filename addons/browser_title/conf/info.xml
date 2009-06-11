@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <addon version="0.2">
-	<version>1.8</version>
+	<version>1.9</version>
 	<license>GPL</license>
 	<date>2009-04-11</date>
 	<link>http://sworld.pe.kr/</link>
@@ -40,14 +40,14 @@
 				<title xml:lang="ko">└ 페이지 제목</title>
 					<description xml:lang="ko">일반 페이지에서 적용될 제목을 입력해 주세요.
 			
-					{default} : 페이지에 설정된 브라우저 제목 출력
+					{default} : 모듈에 설정된 브라우저 제목 출력
 					</description>
 			</var>
 	        <var name="customize1_title2" type="text">
 		        <title xml:lang="ko">└ 글 읽기 제목</title>
 					<description xml:lang="ko">글을 읽을 때 적용될 제목을 입력해 주세요.
 					
-					{default} : 게시판에 설정된 브라우저 제목 출력
+					{default} : 모듈에 설정된 브라우저 제목 출력
 					{title} : 읽고 있는 글의 제목 출력
 					{category} : 읽고 있는 글의 분류 출력
 					</description>
@@ -80,16 +80,18 @@
 			    <title xml:lang="ko">└ 페이지 제목</title>
 					<description xml:lang="ko">페이지에서 적용될 제목을 입력해 주세요.
 			
-					{default} : 페이지에 설정된 브라우저 제목 출력
+					{default} : 모듈에 설정된 브라우저 제목 출력
+					{module_category} : 모듈에 설정된 모듈 분류 출력
 					</description>
 			</var>
 		    <var name="customize2_title2" type="text">
 			    <title xml:lang="ko">└ 글 읽기 제목</title>
 					<description xml:lang="ko">글을 읽을 때 적용될 제목을 입력해 주세요.
 					
-					{default} : 게시판에 설정된 브라우저 제목 출력
+					{default} : 모듈에 설정된 브라우저 제목 출력
 					{title} : 읽고 있는 글의 제목 출력
 					{category} : 읽고 있는 글의 분류 출력
+					{module_category} : 모듈에 설정된 모듈 분류 출력
 					</description>
 			</var>
 		</group>
@@ -120,16 +122,18 @@
             <title xml:lang="ko">└ 페이지 제목</title>
 			<description xml:lang="ko">페이지에서 적용될 제목을 입력해 주세요.
 			
-			{default} : 페이지에 설정된 브라우저 제목 출력
+			{default} : 모듈에 설정된 브라우저 제목 출력
+			{module_category} : 모듈에 설정된 모듈 분류 출력
 			</description>
 		</var>
         <var name="customize3_title2">
             <title xml:lang="ko">└ 글 읽기 제목</title>
 				<description xml:lang="ko">글을 읽을 때 적용될 제목을 입력해 주세요.
 				
-				{default} : 게시판에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
 				{title} : 읽고 있는 글의 제목 출력
 				{category} : 읽고 있는 글의 분류 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
 		</group>
@@ -160,16 +164,18 @@
             <title xml:lang="ko">└ 페이지 제목</title>
 			<description xml:lang="ko">페이지에서 적용될 제목을 입력해 주세요.
 			
-			{default} : 페이지에 설정된 브라우저 제목 출력
+			{default} : 모듈에 설정된 브라우저 제목 출력
+			{module_category} : 모듈에 설정된 모듈 분류 출력
 			</description>
 		</var>
         <var name="customize4_title2" type="text">
             <title xml:lang="ko">└ 글 읽기 제목</title>
 				<description xml:lang="ko">글을 읽을 때 적용될 제목을 입력해 주세요.
 				
-				{default} : 게시판에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
 				{title} : 읽고 있는 글의 제목 출력
 				{category} : 읽고 있는 글의 분류 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
 		</group>
@@ -200,16 +206,18 @@
             <title xml:lang="ko">└ 페이지 제목</title>
 				<description xml:lang="ko">페이지에서 적용될 제목을 입력해 주세요.
 				
-				{default} : 게시판에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
         <var name="customize5_title2" type="text">
             <title xml:lang="ko">└ 글 읽기 제목</title>
 				<description xml:lang="ko">글을 읽을 때 적용될 제목을 입력해 주세요.
 				
-				{default} : 게시판에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
 				{title} : 읽고 있는 글의 제목 출력
 				{category} : 읽고 있는 글의 분류 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
 		</group>
@@ -240,16 +248,18 @@
             <title xml:lang="ko">└ 페이지 제목</title>
 				<description xml:lang="ko">페이지에서 적용될 제목을 입력해 주세요.
 				
-				{default} : 페이지에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
         <var name="customize6_title2" type="text">
             <title xml:lang="ko">└ 글 읽기 제목</title>
 				<description xml:lang="ko">글을 읽을 때 적용될 제목을 입력해 주세요.
 				
-				{default} : 게시판에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
 				{title} : 읽고 있는 글의 제목 출력
 				{category} : 읽고 있는 글의 분류 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
 		</group>
@@ -280,16 +290,18 @@
             <title xml:lang="ko">└ 페이지 제목</title>
 				<description xml:lang="ko">페이지에서 적용될 제목을 입력해 주세요.
 				
-				{default} : 페이지에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
         <var name="customize7_title2" type="text">
             <title xml:lang="ko">└ 글 읽기 제목</title>
 				<description xml:lang="ko">글을 읽을 때 적용될 제목을 입력해 주세요.
 				
-				{default} : 게시판에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
 				{title} : 읽고 있는 글의 제목 출력
 				{category} : 읽고 있는 글의 분류 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
 		</group>
@@ -320,16 +332,18 @@
             <title xml:lang="ko">└ 페이지 제목</title>
 				<description xml:lang="ko">페이지에서 적용될 제목을 입력해 주세요.
 				
-				{default} : 페이지에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
         <var name="customize8_title2" type="text">
             <title xml:lang="ko">└ 글 읽기 제목</title>
 				<description xml:lang="ko">글을 읽을 때 적용될 제목을 입력해 주세요.
 				
-				{default} : 게시판에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
 				{title} : 읽고 있는 글의 제목 출력
 				{category} : 읽고 있는 글의 분류 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
 		</group>
@@ -349,16 +363,18 @@
             <title xml:lang="ko">└ 페이지 제목</title>
 			<description xml:lang="ko">페이지에서 적용될 제목을 입력해 주세요.
 			
-			{default} : 페이지에 설정된 브라우저 제목 출력
+			{default} : 모듈에 설정된 브라우저 제목 출력
+			{module_category} : 모듈에 설정된 모듈 분류 출력
 			</description>
 		</var>
         <var name="total_title2" type="text">
             <title xml:lang="ko">└ 글 읽기 제목</title>
 				<description xml:lang="ko">글을 읽을 때 적용될 제목을 입력해 주세요.
 				
-				{default} : 게시판에 설정된 브라우저 제목 출력
+				{default} : 모듈에 설정된 브라우저 제목 출력
 				{title} : 읽고 있는 글의 제목 출력
 				{category} : 읽고 있는 글의 분류 출력
+				{module_category} : 모듈에 설정된 모듈 분류 출력
 				</description>
 		</var>
 		<var name="total_but_list" type="textarea">
