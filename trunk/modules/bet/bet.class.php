@@ -68,9 +68,7 @@
 				$args->var_name = $var_names[$i];
 				$args->eid = $eids[$i];
 				$isExists = executeQuery('bet.getDocumentExtraKey',$args);
-				if(!$isExists->data) {
-					return true;
-				}
+				if(!$isExists->data) return true;
 			}
 			return false;
         }
