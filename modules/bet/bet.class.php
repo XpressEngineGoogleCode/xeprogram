@@ -69,7 +69,6 @@
 				$args->eid = $eids[$i];
 				$isExists = executeQuery('bet.getDocumentExtraKey',$args);
 				if(!$isExists->data) {
-					debugPrint($isExists);
 					return true;
 				}
 			}
