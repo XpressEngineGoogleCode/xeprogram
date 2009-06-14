@@ -74,7 +74,6 @@
 
             // 결과를 리턴
             $this->add('mid', Context::get('mid'));
-            $this->add('document_srl', $output->get('document_srl'));
 
             // 성공 메세지 등록
             $this->setMessage($msg_code);
@@ -89,6 +88,7 @@
 
 			$oBetModel = &getModel('bet');
 			$oMemberModel = &getModel('member');
+			$oDocumentModel = &getModel('document');
 
 			$logged_info = Context::get('logged_info');
 			$member_srl = $loggged_info->member_srl;
@@ -98,11 +98,15 @@
 			$point = (int)Context::get('point');
 
 			if(!$document_srl) return new Object(-1, 'msg_invalid_request');
+
+			// 배팅 가능한 상태인지 확인
+			if(!$oBetModel->getBetable($document_srl)) return new Object(-1, 'msg_cannot_beting');
+
 			if(!$team1_score || !$team2_score) return new Object(-1, 'msg_input_score');
 			if(!$point || $point<1) return new Object(-1, 'msg_input_point');
 
 			$prev_point = $oMemberModel->getPoint($member_srl);
-
+			if($point > $prev_point) return new Object(-1, 'msg_not_enough_point');
 		}
     }
 ?>
