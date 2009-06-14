@@ -41,6 +41,19 @@
             return $module_info;
         }
 
+		/**
+		 * @brief 배팅 가능 여부 구하기
+		 **/
+		function getBetable($document_srl) {
+			if(!$document_srl) return;
+
+			$oDocument = $oDocumentModel->getDocument($document_srl);
+			$betDate = date("YmdHis", time()-60*60*24);
+
+			if($oDocument->get('regdate')>$betDate) return true;
+			return false;
+		}
+
         /**
          * @brief 배율 구하기
          **/
