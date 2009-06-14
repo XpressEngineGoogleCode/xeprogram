@@ -4,7 +4,7 @@
     <description xml:lang="ko">포인트를 걸고 배팅할 수 있는 모듈입니다.</description>
     <version>0.1</version>
     <date>2009-05-23</date>
-    <category>service</category>
+    <category>accessory</category>
 
     <author email_address="dowon2308@paran.com" link="http://sworld.pe.kr">
         <name xml:lang="ko">SMaker</name>

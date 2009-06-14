@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
     <grants>
-		<grant name="bet">
+		<grant name="bet" default="manager">
 			<title xml:lang="ko">배팅 참여</title>
 		</grant>
 	</grants>
@@ -15,6 +15,7 @@
 		<action name="dispBetSubmit" type="view" standalone="true" />
 
 		<action name="procBet" type="controller" standalone="true" />
+		<action name="procBetSubmit" type="controller" standalone="true" />
 		<action name="procBetAdminInsertConfig" type="controller" standalone="true" />
     </actions>
 </module>
