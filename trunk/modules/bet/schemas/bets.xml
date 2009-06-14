@@ -1,0 +1,5 @@
+<table name="bets">
+    <column name="document_srl" type="number" size="11" notnull="notnull" index="idx_document_srl" />
+	<column name="magnification" type="number" size="11" notnull="notnull" />
+    <column name="point" type="number" size="11" notnull="notnull" />
+</table>
