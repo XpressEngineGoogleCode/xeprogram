@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">Default Skin</title>
+    <description xml:lang="ko">
+        배팅 모듈의 기본 스킨입니다.
+    </description>
+    <version>0.1</version>
+    <date>2009-06-14</date>
+
+    <author email_address="dowon2308@paran.com" link="http://sworld.pe.kr">
+        <name xml:lang="ko">SMaker</name>
+    </author>
+
+	<license>GPL</license>
+
+    <extra_vars>
+    </extra_vars>
+</skin>
+

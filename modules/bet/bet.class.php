@@ -13,6 +13,7 @@
         function moduleInstall() {
             $oModuleModel = &getModel('module');
             $oModuleController = &getController('module');
+			$oDocumentController = &getController('document');
             $oBetController = &getController('bet');
 
             $module_info = $oModuleModel->getModuleConfig('bet');
@@ -30,6 +31,11 @@
                 $args->module_srl = getNextSequence();
                 $output = $oModuleController->insertModule($args);
 
+				$oDocumentController->insertDocumentExtraKey($args->module_srl, 1, 'team1', 'text', 'Y', 'N', '', '', 'team1');
+				$oDocumentController->insertDocumentExtraKey($args->module_srl, 2, 'team2', 'text', 'Y', 'N', '', '', 'team2');
+				$oDocumentController->insertDocumentExtraKey($args->module_srl, 3, 'team1_score', 'text', 'Y', 'N', '', '', 'team1_score');
+				$oDocumentController->insertDocumentExtraKey($args->module_srl, 3, 'team2_score', 'text', 'Y', 'N', '', '', 'team2_score');
+
                 $bet_args->mid = $args->mid;
                 $oBetController->insertConfig($bet_args);
             }
@@ -46,6 +52,27 @@
             $module_info = $oModuleModel->getModuleConfig('bet');
             if(!$module_info->mid) return true;
 
+			$args->module_srl = $oModuleModel->getModuleSrlByMid($module_info->mid);
+			if(is_array($args->module_srl)) $args->module_srl = $args->module_srl['0'];
+			$args->var_type = 'text';
+			$args->var_is_required = 'Y';
+			$args->var_search = 'N';
+			$args->var_default = '';
+			$args->var_desc = '';
+			$var_idxs = array(1,2,3,4);
+			$var_names = array('team1','team2','team1_score','team2_score');
+			$eids = array('team1','team2','team1_score','team2_score');
+			$count = count($var_idxs);
+			for($i=0; $i<$count; $i++) {
+				$args->var_idx = $var_idxs[$i];
+				$args->var_name = $var_names[$i];
+				$args->eid = $eids[$i];
+				$isExists = executeQuery('bet.getDocumentExtraKey',$args);
+				if(!$isExists->data) {
+					debugPrint($isExists);
+					return true;
+				}
+			}
 			return false;
         }
 
@@ -55,6 +82,7 @@
         function moduleUpdate() {
             $oModuleModel = &getModel('module');
             $oModuleController = &getController('module');
+			$oDocumentController = &getController('document');
             $oBetController = &getController('bet');
 
             $module_info = $oModuleModel->getModuleConfig('bet');
@@ -66,13 +94,34 @@
                 $args->mid = 'bet';
                 $args->module_srl = getNextSequence();
                 $output = $oModuleController->insertModule($args);
-
-                $bet_args->mid = $args->mid;
-                $oBetController->insertConfig($bet_args);
+			}
+				unset($args->module);
+				unset($args->browser_title);
+				unset($args->skin);
+				unset($args->is_default);
+				unset($args->mid);
+				$args->module_srl = $oModuleModel->getModuleSrlByMid($module_info->mid);
+				if(is_array($args->module_srl)) $args->module_srl = $args->module_srl['0'];
+				$args->var_type = 'text';
+				$args->var_is_required = 'Y';
+				$args->var_search = 'N';
+				$args->var_default = '';
+				$args->var_desc = '';
+				$var_idxs = array(1,2,3,4);
+				$var_names = array('team1','team2','team1_score','team2_score');
+				$eids = array('team1','team2','team1_score','team2_score');
+				$count = count($var_idxs);
+				for($i=0; $i<$count; $i++) {
+					$args->var_idx = $var_idxs[$i];
+					$args->var_name = $var_names[$i];
+					$args->eid = $eids[$i];
+					$isExists = executeQuery('bet.getDocumentExtraKey',$args);
+					if(!$isExists->data) {
+						$oDocumentController->insertDocumentExtraKey($args->module_srl, $args->var_idx, $args->var_name, $args->var_type, $args->var_is_required, $args->var_search, $args->var_default, $args->var_desc, $args->eid);
+					}
+				}
+				return new Object(0,'success_updated');
             }
-
-            return new Object(0,'success_updated');
-        }
 
         /**
          * @brief 캐시 파일 재생성

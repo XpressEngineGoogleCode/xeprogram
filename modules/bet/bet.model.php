@@ -40,5 +40,29 @@
             }
             return $module_info;
         }
+
+        /**
+         * @brief 배율 구하기
+         **/
+		function getBetMagnifications($document_srl) {
+			if(!$document_srl) return;
+
+			$output = executeQuery('bet.getBetMagnifications');
+			if(!$output->toBool()) return $output;
+			return $output->data;
+		}
+
+        /**
+         * @brief 점수 구하기
+         **/
+		function getBetScore($document_srl, $team_no) {
+			$team_no = (int)$team_no;
+
+			if(!$team_no) return;
+
+			$output = executeQuery('bet.getBetScore');
+			if(!$output->toBool()) return $output;
+			return $output->data;
+		}
     }
 ?>

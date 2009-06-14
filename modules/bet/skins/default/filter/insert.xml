@@ -1,0 +1,16 @@
+<filter name="insert" module="bet" act="procBetSubmit">
+  <form>
+    <node target="team1" required="true" />
+    <node target="team2" required="true" />
+    <node target="team1_score" required="true" filter="number" />
+	<node target="team2_score" required="true" filter="number" />
+  </form>
+  <parameter />
+  <response callback_func="completeBetSubmited">
+    <tag name="error" />
+    <tag name="message" />
+    <tag name="mid" />
+    <tag name="document_srl" />
+    <tag name="category_srl" />
+  </response>
+</filter>

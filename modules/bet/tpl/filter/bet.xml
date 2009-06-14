@@ -1,7 +1,8 @@
 <filter name="bet" module="bet" act="procBet" confirm_msg_code="confirm_bet">
     <form>
-        <node target="first_score" required="true" filter="number" />
-        <node target="second_score" required="true" filter="number" />
+        <node target="team1_score" required="true" filter="number" />
+        <node target="team2_score" required="true" filter="number" />
+		<node target="bet_point" required="true" filter="number" />
     </form>
     <parameter />
     <response callback_func="completeBet">
