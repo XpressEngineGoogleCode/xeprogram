@@ -37,6 +37,7 @@
          * @brief 배팅
          **/
         function dispBetContent() {
+			$oBetModel = &getModel('bet');
 			$oDocumentModel = &getModel('document');
 
 			// 목록을 구하기 위한 대상 모듈/ 페이지 수/ 목록 수/ 페이지 목록 수에 대한 옵션 설정
@@ -58,6 +59,7 @@
 
             // 일반 글을 구해서 context set
             $output = $oDocumentModel->getDocumentList($args);
+			Context::set('oBetModel', $oBetModel);
             Context::set('document_list', $output->data);
             Context::set('total_count', $output->total_count);
             Context::set('total_page', $output->total_page);
