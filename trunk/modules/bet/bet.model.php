@@ -47,6 +47,8 @@
 		function getBetable($document_srl) {
 			if(!$document_srl) return;
 
+			$oDocumentModel = &getModel('document');
+
 			$oDocument = $oDocumentModel->getDocument($document_srl);
 			$betDate = date("YmdHis", time()-60*60*24);
 
@@ -72,6 +74,17 @@
 			$team_no = (int)$team_no;
 
 			if(!$team_no) return;
+
+			$output = executeQuery('bet.getBetScore');
+			if(!$output->toBool()) return $output;
+			return $output->data;
+		}
+
+        /**
+         * @brief 배팅 로그 구하기
+         **/
+		function getBetLog($document_srl, $member_srl) {
+			if(!$document_srl || !$member_srl) return;
 
 			$output = executeQuery('bet.getBetScore');
 			if(!$output->toBool()) return $output;
