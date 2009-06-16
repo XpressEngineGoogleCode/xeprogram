@@ -1,4 +1,10 @@
-.betList { border:1px solid; }
-.betList thead th div, .betList tbody td div { height:100%; padding-right:3px; border-right:1px solid #dcdcdc; text-align:center; }
+.betList { width:100%; border:1px solid; }
+.betList thead th div { padding:3px; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; background-color:#eeeeee; text-align:center; }
+.betList tbody td div { padding:3px; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; text-align:center; }
+.betList tbody td div.msg { background-color:#eeeeee; }
+.betList tbody td div.msg.red { color:#ff0000; }
+.betList tbody td div.msg.blue { color:#0000ff; }
+.betList tbody td div.msg.green { color:#006400; }
 
+.betButton { margin-top:10px; }
 .w30 { width:30px;}
