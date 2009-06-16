@@ -1,12 +1,21 @@
 <!--%import("../../tpl/filter/bet.xml")-->
 <!--#include("common.html")-->
+{@ $_cols = 2}
 <table cellspacing="0" cellpadding="0" class="betList">
     <thead>
     <tr>
         <th><div>&nbsp;</div></th>
-        <!--@if($grant->manager)--><th><div>{$lang->result}</div></th>
-        <th><div>{$lang->cumulative_point}</div></th><!--@end-->
-        <!--@if($grant->bet )--><th><div>{$lang->bet}</div></th><!--@end-->
+        <!--@if($grant->manager || !$oBetModel->getBetable($document->document_srl))-->
+        {@ $_cols++}
+        <th><div>{$lang->result}</div></th>
+        <!--@end-->
+        <th><div>{$lang->cumulative_point}</div></th>
+        <!--@if($grant->bet && $oBetModel->getBetable($document->document_srl))-->
+        {@ $_cols++}
+        {@ $_cols++}
+        <th><div>{$lang->magnifications}</div></th>
+        <th><div>{$lang->bet}</div></th>
+        <!--@end-->
     </tr>
     </thead>
     <tbody>
@@ -17,7 +26,8 @@
         <td><div>{$document->getExtraEidValue('team1_score')}:{$document->getExtraEidValue('team2_score')}</div></td>
         <td><div>0</div></td>
         <!--@endif-->
-        <!--@if($grant->bet)-->
+        <!--@if($grant->bet && $oBetModel->getBetable($document->document_srl))-->
+        <td><div></div></td>
         <td><div>
         <form action="./" method="post" onsubmit="return procFilter(this, bet)">
             <input type="hidden" name="document_srl" value="{$document->document_srl}" />
@@ -27,6 +37,11 @@
         </div></td>
         <!--@endif-->
     </tr>
+    <!--@if(!$oBetModel->getBetable($document->document_srl))-->
+    <tr>
+        <td<!--@if($_cols>1)--> colspan="{$_cols}"<!--@end-->><div class="msg red">{$lang->msg_cannot_beting}</div></td>
+    </tr>
+    <!--@endif-->
     <!--@endforeach-->
     </tbody>
 </table>

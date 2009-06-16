@@ -89,6 +89,7 @@
 			$oBetModel = &getModel('bet');
 			$oMemberModel = &getModel('member');
 			$oDocumentModel = &getModel('document');
+			$oPointController = &getController('point');
 
 			$logged_info = Context::get('logged_info');
 			$member_srl = $loggged_info->member_srl;
@@ -107,6 +108,38 @@
 
 			$prev_point = $oMemberModel->getPoint($member_srl);
 			if($point > $prev_point) return new Object(-1, 'msg_not_enough_point');
+
+			// 배팅 로그 등록
+			$this->insertBetLog($document_srl, $member_srl, $point);
+			// 누적 포인트 업데이트
+			$this->updateBetCumulativePoint($document_srl, $point);
+			// 포인트 차감
+			$oPointController->setPoint($member_srl, $point, 'minus');
+		}
+
+        /**
+         * @brief 배팅 로그 등록
+         **/
+		function insertBetLog($document_srl, $member_srl, $point) {
+			if(!$document_srl || !$member_srl || !$point) return;
+
+			$args->document_srl = $document_srl;
+			$args->member_srl = $member_srl;
+			$args->point = $point;
+
+			return executeQuery('bet.insertBetLog', $args);
+		}
+
+        /**
+         * @brief 배팅 누적 포인트 업데이트
+         **/
+		function updateBetCumulativePoint($document_srl, $point) {
+			if(!$document_srl || !$point) return;
+
+			$args->document_srl = $document_srl;
+			$args->point = $point;
+
+			return executeQuery('bet.updateBetCumulativePoint', $args);
 		}
     }
 ?>
