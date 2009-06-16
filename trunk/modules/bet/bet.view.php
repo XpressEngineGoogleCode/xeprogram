@@ -15,14 +15,13 @@
 			$module_info = $oBetModel->getConfig();
 
             /**
-             * 기본 모듈 정보들 설정 (list_count, page_count는 게시판 모듈 전용 정보이고 기본 값에 대한 처리를 함)
+             * 기본 모듈 정보들 설정
              **/
             if($module_info->list_count) $this->list_count = $module_info->list_count;
             if($module_info->search_list_count) $this->search_list_count = $module_info->search_list_count;
             if($module_info->page_count) $this->page_count = $module_info->page_count;
 
             // 템플릿 경로 지정
-
             $template_path = sprintf('%sskins/%s/',$this->module_path, $module_info->skin);
             if(!is_dir($template_path)) {
                 $module_info->skin = 'default';
