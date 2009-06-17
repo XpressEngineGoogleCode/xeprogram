@@ -114,7 +114,11 @@
 			// 누적 포인트 업데이트
 			$this->updateBetCumulativePoint($document_srl, $point);
 			// 포인트 차감
-			$oPointController->setPoint($member_srl, $point, 'minus');
+			//$oPointController->setPoint($member_srl, $point, 'minus');
+
+			$this->add('mid', Context::get('mid'));
+
+			$this->setMessage('succeed_beting');
 		}
 
         /**
