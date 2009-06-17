@@ -48,11 +48,15 @@
 			if(!$document_srl) return;
 
 			$oDocumentModel = &getModel('document');
+			$logged_info = Context::get('logged_info');
+
+			if(!$logged_info) return;
 
 			$oDocument = $oDocumentModel->getDocument($document_srl);
-			$betDate = date("YmdHis", time()-60*60*24);
+			$betDate = date('YmdHis', time()-60*60*24);
 
-			if($oDocument->get('regdate')>$betDate) return true;
+			if($oDocument->get('regdate')<$betDate) return false;
+			if($this->getBetLog($document_srl, $logged_info->member_srl)) return false;
 			return false;
 		}
 
@@ -68,25 +72,15 @@
 		}
 
         /**
-         * @brief 점수 구하기
-         **/
-		function getBetScore($document_srl, $team_no) {
-			$team_no = (int)$team_no;
-
-			if(!$team_no) return;
-
-			$output = executeQuery('bet.getBetScore');
-			if(!$output->toBool()) return $output;
-			return $output->data;
-		}
-
-        /**
          * @brief 배팅 로그 구하기
          **/
 		function getBetLog($document_srl, $member_srl) {
 			if(!$document_srl || !$member_srl) return;
 
-			$output = executeQuery('bet.getBetScore');
+			$args->document_srl = $document_srl;
+			$args->member_srl = $member_srl;
+
+			$output = executeQuery('bet.getBetLog',$args);
 			if(!$output->toBool()) return $output;
 			return $output->data;
 		}

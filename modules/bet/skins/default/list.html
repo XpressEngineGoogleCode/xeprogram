@@ -1,6 +1,8 @@
 <!--%import("../../tpl/filter/bet.xml")-->
 <!--#include("common.html")-->
-{@ $_cols = 2}
+{@ $_cols = 2;
+   $betDate = date('YmdHis', time()-60*60*24);
+}
 <table cellspacing="0" cellpadding="0" class="betList">
     <thead>
     <tr>
@@ -39,7 +41,7 @@
     </tr>
     <!--@if(!$oBetModel->getBetable($document->document_srl))-->
     <tr>
-        <td<!--@if($_cols>1)--> colspan="{$_cols}"<!--@end-->><div class="msg red">{$lang->msg_cannot_beting}</div></td>
+        <td<!--@if($_cols>1)--> colspan="{$_cols}"<!--@end-->><div class="msg red"><!--@if($document->get('regdate')<$betDate)-->{$lang->msg_cannot_beting}<!--@end--></div></td>
     </tr>
     <!--@endif-->
     <!--@endforeach-->

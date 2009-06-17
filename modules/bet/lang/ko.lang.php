@@ -25,5 +25,8 @@
     $lang->msg_not_enough_point = '포인트가 부족합니다';
 	$lang->msg_input_score = '점수를 정확하게 입력해 주세요.';
 	$lang->msg_input_point = '배팅할 포인트를 정확하게 입력해 주세요.';
-	$lang->msg_cannot_beting = '배팅 가능한 시간이 지나 배팅할 수 없습니다.'
+	$lang->msg_cannot_beting = '배팅 가능한 시간이 지나 배팅할 수 없습니다.';
+	$lang->msg_cannot_beting2 = '이미 배팅하셨습니다.';
+
+	$lang->succeed_beting = '배팅되었습니다.';
 ?>
