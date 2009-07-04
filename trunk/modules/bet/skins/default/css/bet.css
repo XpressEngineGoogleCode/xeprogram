@@ -1,10 +1,10 @@
 .betList { width:100%; border:1px solid; }
-.betList thead th div { padding:3px; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; background-color:#eeeeee; text-align:center; }
-.betList tbody td div { padding:3px; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; background-color:#ffffff; text-align:center; }
-.betList tbody td div.msg { background-color:#eeeeee; }
-.betList tbody td div.msg.red { color:#ff0000; }
-.betList tbody td div.msg.blue { color:#0000ff; }
-.betList tbody td div.msg.green { color:#006400; }
+.betList thead th { padding:3px; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; background-color:#eeeeee; text-align:center; }
+.betList tbody td { padding:3px; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; background-color:#ffffff; text-align:center; }
+.betList tbody td.msg { margin:0; background-color:#eeeeee; }
+.betList tbody td.msg.red { color:#ff0000; }
+.betList tbody td.msg.blue { color:#0000ff; }
+.betList tbody td.msg.breen { color:#006400; }
 
 .betButton { margin-top:10px; }
 .w30 { width:30px;}

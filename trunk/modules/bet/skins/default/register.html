@@ -1,6 +1,7 @@
-<!--%import("filter/insert.xml")-->
+<!--%import("filter/register.xml")-->
 <!--#include("common.html")-->
-<form action="./" method="post" onsubmit="return procFilter(this, insert)" id="fo_submit">
+<!--#include("header.html")-->
+<form action="./" method="post" onsubmit="return procFilter(this, register)" id="fo_register">
 <table cellspacing="0" cellpadding="0" class="betList">
     <thead>
     <tr>
@@ -16,6 +17,6 @@
     </tbody>
 </table>
 <div class="betButton tRight">
-    <span class="button"><input type="submit" value="{$lang->cmd_submit}" /></span>
+    <span class="button"><input type="submit" value="{$lang->cmd_bet_open}" /></span>
 </div>
 </form>

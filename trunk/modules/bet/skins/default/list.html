@@ -1,18 +1,18 @@
 <!--%import("../../tpl/filter/bet.xml")-->
 <!--#include("common.html")-->
-{@ $_cols = 2;
-   $betDate = date('YmdHis', time()-60*60*24);
+<!--#include("header.html")-->
+{@
+    $_cols = 2;
+    $betDate = date('YmdHis', time()-60*60*24);
 }
 <table cellspacing="0" cellpadding="0" class="betList">
     <thead>
     <tr>
         <th><div>&nbsp;</div></th>
-        <!--@if($grant->manager || !$oBetModel->getBetable($document->document_srl))-->
         {@ $_cols++}
+        <!--@if($grant->bet)-->
         <th><div>{$lang->result}</div></th>
-        <!--@end-->
         <th><div>{$lang->cumulative_point}</div></th>
-        <!--@if($grant->bet && $oBetModel->getBetable($document->document_srl))-->
         {@ $_cols++}
         {@ $_cols++}
         <th><div>{$lang->magnifications}</div></th>
@@ -21,34 +21,38 @@
     </tr>
     </thead>
     <tbody>
-    <!--@foreach($document_list as $no => $document)-->
+    <!--@foreach($bet_list as $no => $bet)-->
     <tr>
-        <td><div>{$document->getExtraEidValue('team1')} vs {$document->getExtraEidValue('team2')}</div></td>
+        <td>{$bet->getExtraEidValue('team1')} vs {$bet->getExtraEidValue('team2')}</td>
         <!--@if($grant->manager)-->
-        <td><div>{$document->getExtraEidValue('team1_score')}:{$document->getExtraEidValue('team2_score')}</div></td>
-        <td><div>0</div></td>
+        <td>{$bet->getExtraEidValue('team1_score')}:{$bet->getExtraEidValue('team2_score')}</td>
+        <td>0</td>
         <!--@endif-->
-        <!--@if($grant->bet && $oBetModel->getBetable($document->document_srl))-->
-        <td><div></div></td>
-        <td><div>
-        <form action="./" method="post" onsubmit="return procFilter(this, bet)">
-            <input type="hidden" name="document_srl" value="{$document->document_srl}" />
+        <!--@if($grant->bet)-->
+        <td>x1</td>
+        <td>
+        <!--@if($oBetModel->getBetable($bet->document_srl,Context::get('logged_info')))--><form action="./" method="post" onsubmit="return procFilter(this, bet)">
+            <input type="hidden" name="document_srl" value="{$bet->document_srl}" />
             <input type="text" name="team1_score" value="" class="inputTypeText w30"/> : <input type="text" name="team2_score" value="" class="inputTypeText w30" />
             <p><input type="text" name="bet_point" value="" class="inputTypeText w30" /> {$lang->point} <span class="button"><input type="submit" value="{$lang->cmd_bet}" /></span></p>
         </form>
-        </div></td>
-        <!--@endif-->
+        <!--@else-->
+        {$lang->disable}
+        <!--@endif--></div></td>
+        <!--@end-->
     </tr>
-    <!--@if(!$oBetModel->getBetable($document->document_srl))-->
+    <!--@if(!$oBetModel->getBetable($bet->document_srl,Context::get('logged_info')))-->
     <tr>
-        <td<!--@if($_cols>1)--> colspan="{$_cols}"<!--@end-->><div class="msg red"><!--@if($document->get('regdate')<$betDate)-->{$lang->msg_cannot_beting}<!--@end--></div></td>
+    {@ $logged_info = Context::get('logged_info') }
+        <td<!--@if($_cols>1)--> colspan="{$_cols}"<!--@end--> class="msg red"><!--@if($oBetModel->getBetLog($bet->document_srl,$logged_info->member_srl))-->{$lang->msg_cannot_beting}<!--@elseif($bet->get('regdate')<$betDate)-->이미 배팅하셨습니다.<!--@end--></td>
     </tr>
-    <!--@endif-->
+    <!--@end-->
     <!--@endforeach-->
     </tbody>
 </table>
-<!--@if($grant->manager)-->
-<div class="betButton tRight">
-    <a href="{getUrl('act','dispBetSubmit')}" class="button red"><span>{$lang->cmd_submit}</span></a>
+<!--@if($grant->bet_open)-->
+<div class="betButton strong tRight">
+    <a href="{getUrl('act','dispBetRegister')}" class="button red"><span>{$lang->cmd_bet_open}</span></a>
 </div>
 <!--@end-->
+<!--#include("footer.html")-->

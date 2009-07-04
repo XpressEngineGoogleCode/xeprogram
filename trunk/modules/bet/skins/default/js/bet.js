@@ -9,14 +9,13 @@ function completeBet(ret_obj) {
 	var error = ret_obj['error'];
 	var message = ret_obj['message'];
 	var mid = ret_obj['mid'];
-	var url = current_url.setQuery('mid',mid).setQuery('act','');
 
 	alert(message);
 
-	location.href = url;
+	location.reload();
 }
 /* 배팅 등록후 */
-function completeBetSubmited(ret_obj) {
+function completeBetRegistered(ret_obj) {
     var error = ret_obj['error'];
     var message = ret_obj['message'];
     var mid = ret_obj['mid'];
